@@ -1,118 +1,90 @@
-# Project Name
+# Tree Creator Script
+
+A Python utility script that creates directory structures and empty files from a text-based tree representation.
 
 ## Overview
-This is a comprehensive project template with a well-organized directory structure designed for scalability and maintainability. The structure follows modern best practices for application development.
 
-## Directory Structure
+`tree_creator.py` is a simple but powerful tool that allows you to quickly generate complex folder and file structures based on a visual tree diagram. Instead of manually creating directories and files one by one, you can paste a tree structure and the script will automatically generate all the necessary folders and files for you.
 
-```
-project_root/
-├── src/                   # Source code directory
-│   ├── core/              # Core functionality
-│   │   ├── __init__.py
-│   │   ├── config.py      # Application configuration
-│   │   ├── exceptions.py  # Custom exceptions
-│   │   └── utils/         # Utility functions
-│   ├── api/               # API layer
-│   │   ├── routes.py      # API routes definition
-│   │   ├── middleware.py  # Request/response middleware
-│   │   └── controllers/   # Request handlers
-│   ├── models/            # Data models
-│   │   ├── base.py        # Base model class
-│   │   ├── user.py        # User model
-│   │   └── profile.py     # User profile model
-│   └── services/          # Business logic services
-│       ├── auth_service.py # Authentication service
-│       ├── email_service.py # Email service
-│       └── storage/        # Storage services
-├── tests/                 # Test suite
-│   ├── unit/              # Unit tests
-│   └── integration/       # Integration tests
-├── static/                # Static assets
-│   ├── css/               # Stylesheets
-│   ├── js/                # JavaScript files
-│   └── assets/            # Images, fonts, etc.
-├── docs/                  # Documentation
-│   └── examples/          # Example use cases
-├── .gitignore             # Git ignore file
-├── requirements.txt       # Python dependencies
-├── setup.py               # Package setup file
-└── README.md              # This file
-```
+## Features
 
-## Getting Started
+- Creates nested directories with arbitrary depth
+- Generates empty files at specified locations
+- Handles special filenames (e.g., `__init__.py` files in Python)
+- Provides detailed feedback during the creation process
+- Works on all major operating systems (Windows, macOS, Linux)
+- Simple, interactive command-line interface
 
-### Prerequisites
-- Python 3.8 or higher
-- Virtual environment (recommended)
+## Requirements
 
-### Installation
+- Python 3.6 or higher
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/username/project-name.git
-   cd project-name
-   ```
+## Installation
 
-2. Create and activate a virtual environment
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. For development, install in editable mode
-   ```bash
-   pip install -e .
-   ```
+No installation is required. Simply download the `tree_creator.py` script to your computer.
 
 ## Usage
 
-### Running the Application
-```bash
-python -m src.api.routes
+1. Save the script as `tree_creator.py`
+2. Run the script:
+   ```
+   python tree_creator.py
+   ```
+3. Paste your tree structure when prompted
+4. Type `DONE` on a new line and press Enter when finished
+5. The script will create all directories and files in your current working directory
+
+## Input Format
+
+The script expects a tree structure in the following format:
+
+```
+root_folder/
+├── subfolder1/
+│   ├── file1.txt
+│   └── file2.txt
+└── subfolder2/
+    └── file3.txt
 ```
 
-### Running Tests
-```bash
-pytest
+### Format Rules:
+
+- The first line should be the root directory name (with or without a trailing slash)
+- Use standard tree characters (`├`, `│`, `└`, `──`) for the structure
+- Directory names should end with a `/` (slash)
+- File names should not end with a `/`
+- Comments can be added after `#` and will be ignored
+
+## Example
+
+Input:
+```
+my_project/
+├── src/
+│   ├── __init__.py
+│   └── main.py
+└── docs/
+    └── README.md
 ```
 
-## Project Components
+This will create:
+- A directory called `my_project`
+- A subdirectory called `src` inside `my_project`
+- An empty file called `__init__.py` inside `my_project/src`
+- An empty file called `main.py` inside `my_project/src`  
+- A subdirectory called `docs` inside `my_project`
+- An empty file called `README.md` inside `my_project/docs`
 
-### Core
-The `core` module contains essential components used throughout the application:
-- `config.py`: Configuration management
-- `exceptions.py`: Custom exception classes
-- `utils/`: Helper functions and utilities
+## Limitations
 
-### API
-The `api` module handles HTTP requests and responses:
-- `routes.py`: URL routing
-- `middleware.py`: Request/response processing
-- `controllers/`: Request handlers by domain
-
-### Models
-The `models` module defines data structures:
-- `base.py`: Abstract base model
-- `user.py`: User representation
-- `profile.py`: User profile data
-
-### Services
-The `services` module implements business logic:
-- `auth_service.py`: Authentication and authorization
-- `email_service.py`: Email notifications
-- `storage/`: File storage implementations
-
-## Contributing
-Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## API Documentation
-For API details, please refer to [API.md](docs/API.md).
+- The script creates empty files only. No content is added to the files.
+- Special characters in filenames should be avoided.
+- Very deep nested structures (more than 100 levels) might cause issues.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This script is released under the MIT License. Feel free to modify and distribute it.
+
+## Contributing
+
+Contributions are welcome! Feel free to submit pull requests or open issues if you encounter any problems or have suggestions for improvements.
